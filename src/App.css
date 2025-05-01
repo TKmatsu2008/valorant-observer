@@ -36,3 +36,32 @@
     transform: rotate(360deg);
   }
 }
+
+/* App.css */
+
+.app-container {
+  display: flex;
+  height: 100vh;
+  margin: 0;
+}
+
+.menu-panel {
+  list-style: none;
+  padding: 10px;
+  background: #333;
+  width: 200px;
+  margin: 0;
+  overflow-y: auto;
+}
+
+.menu-item {
+  color: white;
+  cursor: grab;
+  padding: 10px;
+  border: 1px solid white;
+  margin-bottom: 5px;
+}
+
+.layout-panel {
+  flex-grow: 1;
+}
