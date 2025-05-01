@@ -12,6 +12,9 @@ const LayoutContainer = ({ layoutRef, menuRef }) => {
   const menuInitialized = useRef(false); // メニュー重複防止フラグ
 
   useEffect(() => {
+    // DOM がまだ準備できていない場合は何もしない
+    if (!layoutRef.current || !menuRef.current) return;
+
     const defaultConfig = {
       content: [{
         type: 'column',
@@ -54,7 +57,7 @@ const LayoutContainer = ({ layoutRef, menuRef }) => {
 
     const layout = new GoldenLayout(
       savedState ? JSON.parse(savedState) : defaultConfig,
-      $(layoutRef.current)
+      $(layoutRef.current) // ← ref DOM に描画
     );
 
     layout.registerComponent('textComponent', TextComponent);
